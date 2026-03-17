@@ -13,7 +13,7 @@ module.exports = {
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
   devServer: {
-    static: './dist',
+    static: false,
     open: true,
     port: 9000,
   },
@@ -25,7 +25,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  modules: 'commonjs',
+                },
+              ],
+            ],
             sourceType: 'unambiguous',
           },
         },
