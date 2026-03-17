@@ -6,12 +6,12 @@ module.exports = {
   mode: 'development',
   entry: './src/js/app.js',
   output: {
-  filename: 'main.[contenthash].js',
-  path: path.resolve(__dirname, 'dist'),
-  clean: true,
-  publicPath: '/ahj-dom/',
-  assetModuleFilename: 'assets/[hash][ext][query]',
-},
+    filename: 'main.[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    publicPath: '/ahj-dom/',
+    assetModuleFilename: 'assets/[hash][ext][query]',
+  },
   devServer: {
     static: './dist',
     open: true,
