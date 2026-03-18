@@ -7,3 +7,4 @@
 ## GitHub Pages
 
 https://katok222.github.io/ahj-dom/
+trigger deploy
