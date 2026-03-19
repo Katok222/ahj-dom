@@ -1,12 +1,16 @@
 import goblinImage from '../img/goblin.png';
 import { getRandomIndex, getNextIndex } from './utils';
 
+const BOARD_SIZE = 16;
+const MOVE_INTERVAL = 1000;
+
 export default class Game {
   constructor(boardEl) {
     this.boardEl = boardEl;
     this.cells = [];
     this.goblin = null;
     this.currentIndex = -1;
+    this.timerId = null;
   }
 
   init() {
@@ -17,7 +21,7 @@ export default class Game {
   }
 
   createBoard() {
-    for (let i = 0; i < 16; i += 1) {
+    for (let i = 0; i < BOARD_SIZE; i += 1) {
       const cell = document.createElement('div');
       cell.classList.add('cell');
       this.boardEl.append(cell);
@@ -46,6 +50,10 @@ export default class Game {
   }
 
   start() {
-    setInterval(() => this.moveGoblin(), 1000);
+    this.timerId = setInterval(() => this.moveGoblin(), MOVE_INTERVAL);
+  }
+
+  stop() {
+    clearInterval(this.timerId);
   }
 }
